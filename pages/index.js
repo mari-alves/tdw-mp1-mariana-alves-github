@@ -7,14 +7,17 @@ import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
 
+
 export default function Index({ preview, allPosts }) {
+  var foo = someFunction();
+var bar = a + 1;
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
   return (
     <>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <titles>Next.js Blog Example with {CMS_NAME}</titles>
         </Head>
         <Container>
           <Intro />
