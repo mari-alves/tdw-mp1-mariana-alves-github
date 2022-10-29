@@ -1,14 +1,21 @@
+import { render, screen } from "@testing-library/react";
+import Intro from "../components/intro";
+import "@testing-library/jest-dom";
 
-import { render, screen } from '@testing-library/react'
-import Intro from '../components/intro'
-import '@testing-library/jest-dom'
+describe("Head", () => {
+  it("renders a heading", () => {
+    render(<Intro />);
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading).toBeInTheDocument();
+  });
+});
 
-describe('Head', () => {
-  it('renders a heading', () => {
-    render(<Intro />)
+// import {render, screen } from "@testing-library/react";
+// import "@testing-library/jest-dom";
+// import Index from "../pages/index";
 
-    const heading = screen.getByRole('heading', {level: 1})
-    expect(heading).toBeInTheDocument()
-  })
-})
-
+// test('se existir no dom', () => {
+//   render(<Home></Home>)
+//   const heading = screen.getByTestId('title')
+//   expect(heading).not.toBeEmptyDOMElement()
+// });
