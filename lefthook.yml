@@ -43,7 +43,6 @@ pre-commit:
       glob: "*.{js,ts, jsx, tsx, html}"
       run: npm run prettier {staged_files}
     tests:
-      glob: "*.{js,ts, jsx, tsx}"
       run: npm run test {all_files}
 
 pre-push:
