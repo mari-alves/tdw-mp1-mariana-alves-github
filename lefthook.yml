@@ -51,7 +51,6 @@ pre-push:
     linter:
       run: npm run lint
     prettier:
-      glob: "*.{js,ts, jsx, tsx, html}"
       run: npm run prettier {staged_files}
     tests:
       run: npm run test 
