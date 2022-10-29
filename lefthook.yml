@@ -40,8 +40,7 @@ pre-commit:
     linter:
       run: npm run lint
     prettier:
-      glob: "*.{js,ts, jsx, tsx, html}"
-      run: npm run prettier {staged_files}
+      run: npm run prettier
     tests:
       run: npm run test
 
@@ -51,6 +50,6 @@ pre-push:
     linter:
       run: npm run lint
     prettier:
-      run: npm run prettier {staged_files}
+      run: npm run prettier
     tests:
       run: npm run test 
