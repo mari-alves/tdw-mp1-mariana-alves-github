@@ -22,7 +22,7 @@ stages:          # List of stages for jobs, and their order of execution
   - install
   - build
   - test
-  #- deploy
+  - deploy
 
 install:
   stage: install
@@ -32,13 +32,13 @@ install:
     paths:
       - node_modules/
 
-#build-job:      # This job runs in the build stage, which runs first.
-  #stage: build
-  #script:
-    #- npm run build
-  #artifacts:
-    #paths:
-      #- out/
+build-job:      # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - out/
 
 #unit-test-job:   # This job runs in the test stage.
   #stage: test    # It only starts when the job in the build stage completes successfully.
@@ -64,6 +64,13 @@ jest-test-job:   # This job also runs in the test stage.
   script:
     - npm run test
     - echo "Testing code oh yeah!"
+
+deploy: 
+  stage: deploy
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH 
+  script:
+    - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
 
 
 #deploy-job:      # This job runs in the deploy stage.
