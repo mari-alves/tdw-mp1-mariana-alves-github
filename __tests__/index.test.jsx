@@ -10,5 +10,3 @@ describe("Head", () => {
     expect(heading).toBeInTheDocument();
   });
 });
-
-
