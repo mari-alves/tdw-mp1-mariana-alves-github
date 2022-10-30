@@ -11,26 +11,4 @@ describe("Head", () => {
   });
 });
 
-// test("se existir no dom", () => {
-//   render(<Index></Index>);
-//   const heading = screen.getByTestId("title");
-//   expect(heading).not.toBeEmptyDOMElement();
-// });
 
-// describe("Head", () => {
-//   it("renders a heading", () => {
-//     render(<Index />);
-//     const heading = screen.getByRole("heading", { level: 1 });
-//     expect(heading).toBeInTheDocument();
-//   });
-// });
-
-// import {render, screen } from "@testing-library/react";
-// import "@testing-library/jest-dom";
-// import Index from "../pages/index";
-
-// test('se existir no dom', () => {
-//   render(<Home></Home>)
-//   const heading = screen.getByTestId('title')
-//   expect(heading).not.toBeEmptyDOMElement()
-// });
