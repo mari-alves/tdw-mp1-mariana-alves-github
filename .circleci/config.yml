@@ -3,15 +3,13 @@ jobs:
   run_tests:
     docker:
       -image: circleci/node:latest
-    steps: 
+    steps:
       - checkout
-      - run: 
+      - run:
         name: Install npm dependencies
-        command: 
-          npm install
+        command: npm install
       - store_artifacts:
           path: node_modules/
-      
+
 workflows:
-  jobs:
-    -run tests
+  jobs: -run tests
