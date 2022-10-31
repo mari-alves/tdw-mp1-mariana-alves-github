@@ -13,8 +13,15 @@ jobs:
       - run: npm run build
       - store_artifacts:
           path: out/
-
+  tests:
+    executor: node/default
+    steps:
+      - run: npm run lint 
+      - run: npm run prettier
+      - run: npm run test 
+      
 workflows:
   test_my_app:
     jobs:
       - install_build
+      - tests
