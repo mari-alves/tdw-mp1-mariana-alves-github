@@ -15,7 +15,7 @@ jobs:
     steps:
       -run: npm run build
       - store_artifacts:
-          path: /out/
+          path: /out
 
 workflows:
   test_my_app:
