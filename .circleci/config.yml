@@ -12,4 +12,5 @@ jobs:
           path: node_modules/
 
 workflows:
-  jobs: -run tests
+  jobs: 
+    -run tests
