@@ -2,7 +2,7 @@ version: "2.1"
 orbs:
   node: circleci/node@5.0.0
 jobs:
-  install & build:
+  install_build:
     executor: node/default
     steps:
       - checkout
@@ -17,4 +17,4 @@ jobs:
 workflows:
   test_my_app:
     jobs:
-      - install & build
+      - install_build
