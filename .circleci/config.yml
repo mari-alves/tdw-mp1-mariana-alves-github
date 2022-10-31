@@ -1,16 +1,24 @@
-version: 2.1
+version: "2.1"
+orbs:
+  node: circleci/node@5.0.0
 jobs:
-  run_tests:
-    docker:
-      -image: circleci/node:latest
+  install:
+    executor: node/default
     steps:
       - checkout
-      - run:
-        name: Install npm dependencies
-        command: npm install
+      - run: npm install -g npm@latest
+      - node/install-packages:
+          cache-path: ~/node_modules
+          override-ci-command: npm install
+  build:
+    executor: node/default
+    steps:
+      - run: npm run build
       - store_artifacts:
-          path: node_modules/
+          path: /out/
 
 workflows:
-  jobs: 
-    -run tests
+  test_my_app:
+    jobs:
+      - install
+      - build
