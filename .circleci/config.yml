@@ -15,9 +15,7 @@ jobs:
           path: out/
   tests:
     steps:
-      - run:
-          name: lint
-          command: npm run lint
+      - run: npm run lint
       
 workflows:
   test_my_app:
