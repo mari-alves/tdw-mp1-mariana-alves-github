@@ -1,19 +1,16 @@
 version: 2.1
-
 jobs:
-  install:
+  run_tests:
+    docker:
+      -image: circleci/node:latest
     steps:
-      - run: npm install
+      - checkout
+      - run:
+        name: Install npm dependencies
+        command: npm install
       - store_artifacts:
           path: node_modules/
 
-
 workflows:
-  version: 2.1
-  my-workflow:
-    jobs:
-      - install
-
-
-
-
+  jobs: 
+    -run tests
