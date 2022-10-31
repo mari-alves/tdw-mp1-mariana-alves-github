@@ -1,4 +1,4 @@
-image: node:latest 
+image: node:latest
 
 stages:          # List of stages for jobs, and their order of execution
   - install
@@ -18,7 +18,7 @@ install:
 build-job:      # This job runs in the build stage, which runs first.
   stage: build
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH 
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - npm run build
   artifacts:
@@ -44,10 +44,10 @@ jest-test-job:   # This job also runs in the test stage.
     - npm run test
     - echo "Testing code oh yeah!"
 
-deploy: 
+deploy:
   stage: deploy
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH 
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
     - echo "It's alive!"
