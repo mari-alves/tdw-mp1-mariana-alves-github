@@ -13,6 +13,7 @@ jobs:
       - run: npm run build
       - store_artifacts:
           path: out/
+  
   tests:
     steps:
       - run: npm run lint
