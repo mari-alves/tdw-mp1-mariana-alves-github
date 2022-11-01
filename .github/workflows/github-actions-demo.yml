@@ -30,6 +30,13 @@ jobs:
           name: dist-without-markdown
           path: |
             out/
+            
+      - name: Contentful Migration
+        id: migrate
+        uses: contentful-userland/contentful-action@main
+        with: # Set the secret as an input
+          space_id: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          management_api_key: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
 
       
   
@@ -69,12 +76,7 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      - name: Contentful Migration
-        id: migrate
-        uses: contentful-userland/contentful-action@main
-        with: # Set the secret as an input
-          space_id: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          management_api_key: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+      
       
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
