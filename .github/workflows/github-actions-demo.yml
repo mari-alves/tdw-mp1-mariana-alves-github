@@ -51,7 +51,7 @@ jobs:
       - run: npm run test
 
   deploy: 
-    needs: tests
+    needs: install_and_build
     runs-on: ubuntu-latest
 
     strategy:
