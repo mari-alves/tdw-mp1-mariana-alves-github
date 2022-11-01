@@ -57,7 +57,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install && mkdir build
+      - run: npm install && mkdir dist
       
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
