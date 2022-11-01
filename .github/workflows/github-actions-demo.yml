@@ -59,7 +59,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install && mkdir build
       
-       - name: Netlify Deploy
+      - name: Netlify Deploy
       # uses: jsmrcaga/action-netlify-deploy@v1.7.1
 
       env:
