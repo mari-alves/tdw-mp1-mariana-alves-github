@@ -27,8 +27,7 @@ jobs:
   tests: 
     steps: 
       - run: npm run lint
-      - run: npm run prettier
-      - run: npm run test
+  
 
 
     
