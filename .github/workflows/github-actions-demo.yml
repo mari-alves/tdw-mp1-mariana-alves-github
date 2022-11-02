@@ -49,9 +49,14 @@ jobs:
       - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         name: List the state of node modules
         continue-on-error: true
-      
-      - run: npm run lint
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Prettier  
       - run: npm run prettier
+
+      - name: Jest
       - run: npm run test
 
       
