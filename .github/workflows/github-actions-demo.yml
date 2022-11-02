@@ -25,7 +25,17 @@ jobs:
           name: out folder
           path: |
             out/
-            
+
+  tests: 
+    needs: install_and_build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: npm run lint
+      - run: npm run prettier
+      - run: npm run test
 
       
 
