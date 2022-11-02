@@ -1,8 +1,12 @@
 name: Node.js CI
 
-on:
+on: 
+  schedule: 
+    # Daily at 0:00 UTC
+    - cron: '0 0 * * *'
   push:
     branches: [ main ]
+    
 
 jobs:
   install_and_build:
