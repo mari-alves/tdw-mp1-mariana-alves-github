@@ -12,9 +12,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      - name: Cache dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: npm-${{ hashFiles('package-lock.json') }}
+        restore-keys: npm-
       #começa o install
       - run: npm install
+      
 
       #começa a build
       - run: npm run build
@@ -33,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
