@@ -1,4 +1,4 @@
-name: Node.js CI
+name: miniprojeto CI/CD
 
 on:
   push:
@@ -32,8 +32,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
-      - run: npm install
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: v1-npm-deps-
+      
       - run: npm run lint
       - run: npm run prettier
       - run: npm run test
