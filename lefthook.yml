@@ -1,4 +1,4 @@
-#pre-commit:
+pre-commit:
   parallel: true
   commands:
     linter:
@@ -8,7 +8,7 @@
     tests:
       run: npm run test
 
-#pre-push:
+pre-push:
   parallel: true
   commands:
     linter:
