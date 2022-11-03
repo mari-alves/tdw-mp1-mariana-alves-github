@@ -30,13 +30,6 @@ jobs:
           path: |
             out/
 
-      - name: Contentful Migration
-        id: migrate
-        uses: contentful-userland/contentful-action@main
-        with: # Set the secret as an input
-          space_id: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          management_api_key: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-
   tests:
     needs: install_and_build
     runs-on: ubuntu-latest
