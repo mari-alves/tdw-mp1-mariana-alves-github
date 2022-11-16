@@ -1,11 +1,11 @@
 name: Node.js CI
 
 on:
-  schedule:
+  #schedule:
     # Daily at 0:00 UTC
-    - cron: "0 0 * * *"
-  push:
-    branches: [main]
+    #- cron: "0 0 * * *"
+  #push:
+    #branches: [main]
 
 env: 
   CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
